@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    background-color: white ;
+    padding: 50px ;
+}
+
+
+
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+
+}
+
+table{
+    width: auto;
+}
+
+
+fieldset{
+    border-color:skyblue;
+    border-width: 3px;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.form{
+    margin: 0 auto;
+}
+
+
+
+input[type="button"]{
+    margin-top: 40px;
+    margin-right: 10px;
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+input[type="text"], input[type="password"], input[type="date"]{
+    margin-right: 40px;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="email"], input[type="number"]{
+    margin-bottom: 20px;
+}
+
+label{
+    display:flex;
+    margin-bottom: 20px ;
+    
+}
+
+button-group{
+    margin: 0 auto;
+}

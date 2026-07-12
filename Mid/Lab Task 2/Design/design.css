@@ -1,0 +1,91 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background-color:rgb(206, 237, 249);
+    padding:50px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.container{
+
+    max-width: 600px;
+    margin: auto;
+    background:white;
+    padding:30px;
+    border-radius: 10px;
+
+}
+
+.header{
+
+    background:white;
+    padding:10px;
+    padding-top:15px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+}
+
+
+h1{
+
+    color:rgb(3, 84, 119);
+    text-align: center;
+    margin-bottom:20px;
+    font-size: 25px;
+
+}
+
+fieldset{
+
+    padding:15px;
+    background:rgb(236, 250, 252);
+    border-radius: 10px;
+
+}
+
+legend{
+
+    color:rgb(3, 84, 119);
+    font-weight: bold;
+
+}
+
+td{
+
+    padding: 8px;
+
+}
+
+input[type=text],
+input[type=password]{
+
+    width:100%;
+    padding:10px;
+    border-radius:8px;
+    border-color: skyblue;
+
+}
+
+input[type=submit]{
+
+    background:rgb(62, 153, 238);
+    color:white;
+    padding:10px;
+    width:150px;
+
+}
+
+#UsernameError,
+#PasswordError,
+#LoginMessage{
+
+    color:red;
+    font-weight:bold;
+
+}

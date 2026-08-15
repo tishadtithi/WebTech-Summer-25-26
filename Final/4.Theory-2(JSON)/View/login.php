@@ -1,6 +1,5 @@
 <?php
-include "../Controller/loginvalidation.php";
-echo $message;
+include "../Controller/Loginvalidation.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +34,7 @@ echo $message;
     <body>
 
 
-       <form method="post" action="" onsubmit="return collect_data()"> 
+       <form  method="post" action="" onsubmit="return collect_data()"> 
         <table>
             <tr>
                 <td> <label for="username"> User Name: </label></td>

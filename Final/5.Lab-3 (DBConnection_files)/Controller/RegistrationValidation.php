@@ -1,4 +1,5 @@
 <?php
+include "../Model/db.php";
 session_start();
 $name="";
 $password="";
@@ -12,6 +13,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     {
         $name=trim($_POST["name"] ?? "");
         $password=trim($_POST["password"] ?? "");
+        $file=$_FILES["file"] ?? [];
         $remember=isset($_POST["remember"]) && $_POST["remember"] == "1";
         
         $valid=true;
@@ -30,7 +32,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 $message="Log In Successful! Session Created";
 
             if($remember){
-                
                     setcookie("remember_user", $name, time() + 60*60*24*7, "/");
             }
             else{
@@ -38,23 +39,37 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             }
         
         $jsonfile="../Model/user.json";
-
         $users=[];
-
         if(file_exists($jsonfile)){
-
             $jsonData=file_get_contents($jsonfile);
-
             $users = json_decode($jsonData, true) ?? [];
             $users []=[
-
                 'username' =>$name,
                 'password' =>password_hash($password, PASSWORD_DEFAULT),
                 'timestamp' => time()
             ];
         file_put_contents($jsonfile, json_encode($users, JSON_PRETTY_PRINT));
         }
-            
+        
+        $path="";
+        if($file)
+            {
+                $uploaddirectory="../Uploads/";
+                $path=$uploaddirectory.basename($file["name"]);
+                move_uploaded_file($file["tmp_name"], $path);
+            }
+
         }
+        $database= new db();
+        $connection=$database->connection();
+        $result= $database->signup($connection,"users", $name, $password, $path);
+        if($result)
+            {
+                Header("Location:../View/login.php");
+            }
+            else{
+                echo "Please try again";
+            }
+
 }
 ?>
